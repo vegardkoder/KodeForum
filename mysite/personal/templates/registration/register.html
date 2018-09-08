@@ -1,0 +1,21 @@
+{% extends 'personal/header.html' %}
+{% block content %}
+  <style>
+    body {
+      background-color: #e2e2e2;
+    }
+  </style>
+  <center>
+    <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+    <form method="post" action="{% url 'register' %}">
+      {% csrf_token %}
+
+      {% if form.errors %}
+      {% endif %}
+
+      {{ form.as_p }}
+
+      <button class="btn btn-info btn-lg" type="submit"> Registrer </button>
+    </form>
+  </center>
+{% endblock %}

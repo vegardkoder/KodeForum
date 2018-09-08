@@ -1,0 +1,28 @@
+{% extends "personal/header.html" %}
+{% block content %}
+  <style>
+    body {
+      background-color:  #e2e2e2;
+    }
+  </style>
+  <center>
+    <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+    <h3> Skriv din kommentar/svar </h3>
+    <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+    {% if user.is_authenticated %}
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-info btn-lg" type="submit" value="Submit"> Send </button>
+      </form>
+    {% else %}
+      <h3> Du må logge inn for å skrive en kommentar </h3>
+    {% endif %}
+  </center>
+
+  <script>
+    function submit() {
+      location.herf = "/forum/post"
+    }
+  </script>
+{% endblock %}

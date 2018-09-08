@@ -1,0 +1,37 @@
+{% extends 'personal/header.html' %}
+{% block content %}
+  {% if form.errrors %}
+  {% endif %}
+
+  {% if next %}
+  {% endif %}
+
+  <style>
+    body {
+      background-color: #e2e2e2;
+    }
+  </style>
+
+  <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <center>
+
+      <h3> Logg inn </h3>
+
+      <br>
+      Brukernavn: {{ form.username }}
+      </br>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+      Passord: {{ form.password }}
+      </br>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+
+
+    <!--  <input type="submit" value="login"> -->
+      <button class="btn btn-info btn-lg" type="submit"> Logg inn </button>
+      <input type="hidden" name="next" value="{{ next }}">
+    </center>
+  </form>
+
+{% endblock %}

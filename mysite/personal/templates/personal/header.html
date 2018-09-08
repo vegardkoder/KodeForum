@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      *
+      {
+          margin: 0px;
+          padding:0px;
+      }
+      body {
+        background-color: #e2e2e2;
+      }
+      #sidebar
+      {
+        position: fixed;
+        width: 200px;
+        height: 120%;
+        background: #121719;
+        left: -200px;
+        transition: all 500ms linear;
+      }
+      #sidebar.active
+      {
+        left: 0px;
+      }
+      #sidebar ul li
+      {
+        color: white;
+        font-size: 20px;
+        list-style: none;
+        padding: 15px 20px;
+        border-bottom: 3px solid black;
+      }
+      #sidebar .toggle-btn
+      {
+        position: absolute;
+        left: 230px;
+        top: 50px;
+      }
+      #sidebar .toggle-btn span
+      {
+        display: block;
+        width: 30px;
+        height: 5px;
+        background: #151719;
+        margin: 5px 0px;
+      }
+      body {
+        background-color: #e2e2e2;
+      }
+    </style>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type = "text/css"/>
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+
+
+    <script>
+      function toggleSidebar()
+      {
+        document.getElementById('sidebar').classList.toggle("active");
+      }
+    </script>
+
+    <title> KodeForum </title>
+  </head>
+  <body>
+
+    <div id="sidebar">
+      <div class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul>
+        {% if not user.is_authenticated %}
+          <li><a href="/" style="text-decoration: none; color: white;"> Hjem </li></a>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <li><a href="/profile" style="text-decoration: none; color: white;"> Profil </li></a>
+        {% endif %}
+        <li><a href="/forum" style="text-decoration: none; color: white;"> Forum </li></a>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'LogoutView' %}" style="text-decoration: none; color: white;"> Logg ut </li></a>
+        {% endif %}
+        <li><a href="/rules" style="text-decoration: none; color: white;"> Regler </li></a>
+      </ul>
+    </div>
+
+    <br>
+    <center>
+      <h2> KodeForum </h2>
+    </center>
+
+    {% block content %}
+
+    {% endblock %}
+
+  </body>
+</html>

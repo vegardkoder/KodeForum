@@ -1,0 +1,88 @@
+{% extends "personal/header.html" %}
+{% block content %}
+
+  <style>
+  body {
+    background-color: #e2e2e2;
+  }
+
+    .middle-div-header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .register-button {
+      border: solid 2px #aaa;
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      background-color: #efb756;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px 3px 10px 3px;
+      padding: 3px;
+      display: inline-block;
+    }
+
+    .login-button {
+      border: solid 2px #aaa;
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      background-color: #5492f7;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px 3px 10px 3px;
+      padding: 3px;
+      display: inline-block;
+    }
+  </style>
+
+  <div class="middle-div-header">
+    <h1> Velkommen til KodeForum </h1>
+    <center>
+    <button class="btn btn-info btn-lg" onclick="register()" type="button"> Registrer </button>
+    </center>
+    <center class="or-text"> eller </center>
+    <center>
+      <button class="btn btn-info btn-lg" onclick="login()"> Logg inn </button>
+    </center>
+  </div>
+
+  <script>
+    function register() {
+      location.href = "/register"
+    }
+    function login() {
+      location.href = "/accounts/login"
+    }
+  </script>
+
+  <!--
+  <div class="modal" id="mymodal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" type="button" onclick="closeRegister()"> x </button>
+        </div>
+        <div class="modal-body">
+          <h4> Register </h4>
+          <p> Username </p>
+          <input type="textField" name="username"> </input>
+          <p> Password </p>
+          <input type="password" name="password"> </input>
+          <p> Email </p>
+          <input type="textField" name="email"> </input>
+          <br>
+          <button class="btn btn-info btn-lg" onclick="register()" type="button"> Submit </button>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+
+{% endblock %}

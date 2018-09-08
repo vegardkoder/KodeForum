@@ -1,0 +1,45 @@
+{% extends "personal/header.html" %}
+{% block content %}
+  <style>
+    body {
+      background-color: #e2e2e2;
+    }
+    #Rows {
+      background-color: #c9c9c9;
+      border-style: solid;
+      border-width: thin;
+      border-color: #9a9a9e;
+      height: 70px;
+    }
+    h5 {
+      margin: auto;
+    }
+    button {
+
+      position: absolute;
+      top: -10px;
+      right: 10px;
+
+    }
+    .container {
+      position: relative;
+    }
+  </style>
+
+  <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+  <div class="container">
+    <h3> Spørsmål </h3>
+    <button class="btn btn-info btn-lg" onclick="createPost()"> Spør Spørsmål </button>
+    {% for post in object_list %}
+      <div class="row" id="Rows">
+        <h5> {{ post.date|date:"Y-m-d" }} <a href="/forum/{{ post.id }}">{{ post.tittel }}</a> </h5>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    function createPost() {
+      location.href = "/forum/createPost"
+    }
+  </script>
+{% endblock %}

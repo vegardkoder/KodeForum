@@ -1,0 +1,29 @@
+{% extends 'personal/header.html' %}
+{% block content %}
+  <style>
+    .center {
+      text-align: center;
+      height: 100%;
+    }
+    body {
+      background-color: #e2e2e2;
+    }
+  </style>
+  <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+  <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+  <div class="center">
+      <h4> Regler </h4>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+      <p> 1. Aktivitet på forumet skal være realfags relatert </p>
+      <p> 2. Ingen spydighet, kommentarer skal være helt konstruktive </p>
+      <p> 3. Ingen reklamering, men det er såklart lov til å vise til kilder og lignende </p>
+      <p> 4. Profil informasjon og bilde skal være passende og ærlig </p>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+      <p> Brudd på regelverket vil få konsikvenser og kan føre til at brukeren blir slettet </p>
+  </div>
+  <script>
+    function Edit() {
+      location.href = "/profile/edit"
+    }
+  </script>
+{% endblock %}

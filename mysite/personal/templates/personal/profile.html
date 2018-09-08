@@ -1,0 +1,30 @@
+{% extends 'personal/header.html' %}
+{% block content %}
+  <style>
+    .center {
+      text-align: center;
+      height: 100%;
+    }
+    body {
+      background-color: #e2e2e2;
+    }
+  </style>
+  <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+  <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+  <div class="center">
+      <h4 style="top: 50%;"> <img src="media/{{ user.userprofile.image }}" width="160" height="160" /> <b> {{ user.username }} </b> </h4>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+      <h5 style="text-decoration: underline;"> Beskrivelse: </h5>
+      <p> {{ user.userprofile.description }} </p>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+      <h5 style="text-decoration: underline;"> Erfaringer/Status: </h5>
+      <p> {{ user.userprofile.experience }} </p>
+      <p style="color: #e2e2e2"> ---------------------------------------------------------- </p>
+      <button class="btn btn-info btn-lg" onclick="Edit()"> Endre </button>
+  </div>
+  <script>
+    function Edit() {
+      location.href = "/profile/edit"
+    }
+  </script>
+{% endblock %}
